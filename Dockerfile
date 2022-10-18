@@ -7,4 +7,4 @@ RUN pip install -e /warp-client/.
 ENV DISPLAY=$DISPLAY
 #CMD ["ros2", "run", "turtlesim", "turtlesim_node"]
 WORKDIR turtle
-CMD ["warpcli", "run", "basic_tests"]
+CMD ["artefacts", "run", "basic_tests"]

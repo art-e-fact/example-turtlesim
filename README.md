@@ -32,18 +32,18 @@ Additionally, you can use ArtefactsCI to keep track of your tests results.
 
 1. Create an account and project on ArtefactsCI
 
-2. Install the warp client
+2. Install the artefacts client
 
 ```
 pip install artefacts-client --extra-index-url https://d5cw4z7oemmfd.cloudfront.net/pep503/ -U
 ```
 
-2. Edit the project name in warp.yaml
+2. Edit the project name in artefacts.yaml
 
 3. Run the tests with tracking enabled
 
 ```
-warpcli run basic_tests
+artefacts run basic_tests
 ```
 
 ### Using Docker
@@ -59,5 +59,5 @@ Then build and run the docker container:
 ```
 git clone git@github.com:art-e-fact/warp-client.git
 docker build -t turtle2 .
-docker run --env WARP_KEY=[YOUR-API-KEY] --net host --env DISPLAY=$DISPLAY -v $(pwd):/turtle turtle2
+docker run --env ARTEFACTS_KEY=[YOUR-API-KEY] --net host --env DISPLAY=$DISPLAY -v $(pwd):/turtle turtle2
 ```
