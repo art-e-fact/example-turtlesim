@@ -14,4 +14,4 @@ jobs:
           pose: turtle1/pose
       settings:
         - name: turtle
-          ros2_testfile: launch_turtle.py
+          ros_testfile: launch_turtle.py
