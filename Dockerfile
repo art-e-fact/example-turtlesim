@@ -1,10 +1,13 @@
-FROM  osrf/ros:galactic-desktop
+FROM osrf/ros:galactic-desktop
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
-COPY warp-client /warp-client
-RUN pip install -e /warp-client/.
+RUN pip install --upgrade setuptools
+RUN pip install artefacts-client --extra-index-url https://d5cw4z7oemmfd.cloudfront.net/pep503/ -U
 ENV DISPLAY=$DISPLAY
-#CMD ["ros2", "run", "turtlesim", "turtlesim_node"]
 WORKDIR turtle
-CMD ["artefacts", "run", "basic_tests"]
+COPY artefacts.yaml .
+COPY launch_turtle.py .
+COPY sample_node.py .
+CMD artefacts run basic_tests
