@@ -1,6 +1,6 @@
 version: 0.1.0
 
-project: test-project
+project: test-project # Update to your project name
 jobs:
   basic_tests: # Overall job name
     type: test
