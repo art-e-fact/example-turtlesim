@@ -16,7 +16,7 @@ class TestListener(Node):
 
     def gt_callback(self, msg):
         vel_msg = Twist()
-        vel_msg.linear.y = 1.0
+        vel_msg.linear.x = 1.0
         self.velocity_publisher.publish(vel_msg)
         self.gt_pose = msg
         if self.gt_pose.x > 8:
