@@ -1,63 +1,48 @@
 # Turtlesim Demo Project
 
-This project demonstrates how to run a basic ros2 end to end tests in simulation (here turtlesim).
+This project demonstrates how to run a basic ROS2 end-to-end test in simulation (here turtlesim).
+
+This demo runs either natively or in containers. Native runs work only on Ubuntu version compatible with the tested ROS2 Galactic and Humble versions. Container runs work on Linux, Darwin and Windows, with the later run in X11-compatible shells.
 
 ## Prerequisite
 
-You will need ROS2 galactic or humble installed.
+### Container for Linux/Darwin/Windows
 
-See instructions [here](https://docs.ros.org/en/humble/Installation.html)
+* Container system: Docker (Podman coming)
+* X11 window system, like XQuartz on Darwin and MobaXterm on Windows, configured to accept local network connections.
 
-## ROS2 tests
+### Native for supported Ubuntu
 
-You can run the tests with:
+This is tested and likely to work only on ROS2 Galactic/Humble Ubuntu systems.
+
+See instructions for example [here for Humble](https://docs.ros.org/en/humble/Installation.html)
+
+## Usage
+
+### Native for supported Ubuntu
+
+#### Preliminary: Direct test run
+
+You can run the tests directly with:
 
 ```
 launch_test launch_turtle.py
 ```
 
-As it is, the test will fail.
+The test should succeed. One way to make it fail for demo purpose is to, say, increment by 0 the turtle velocity, so it never reaches the edge expeced by the test case (see line 19 in `sample_node.py`).
 
-If you take a look at the code, you should be able to find what is wrong and make the test pass.
+#### Tests with Artefacts
 
+1. Create a free account and project on [Artefacts](https://app.artefacts.com)
+2. Install the Artefacts CLI: `pip3 install artefacts-cli`
+3. Edit the project name in `artefacts.yaml` to the name of your project in Artefacts (step 1).
+4. Run the tests with tracking enabled: `artefacts run basic_tests`
+5. Results and detail should shortly be available in your Artefacts dashboard.
 
-## Tests with ArtefactsCI
+### Container runs
 
+Runs should work out of the box, assuming complete X11 configuration:
 
-You can use one of the 2 options below.
+    artefacts run --in-package basic_tests
 
-### With local ROS2 install
-
-Additionally, you can use ArtefactsCI to keep track of your tests results.
-
-1. Create an account and project on ArtefactsCI
-
-2. Install the artefacts client
-
-```
-pip install artefacts-client --extra-index-url https://d5cw4z7oemmfd.cloudfront.net/pep503/ -U
-```
-
-2. Edit the project name in artefacts.yaml
-
-3. Run the tests with tracking enabled
-
-```
-artefacts run basic_tests
-```
-
-### Using Docker
-
-
-Tests on MacOS and Ubuntu 20 often require explictly authorizing access to X11:
-
-    [MacOS] xhost +127.0.0.1: This will start an X11 server if needed, and allow the container to connect.
-    [Ubuntu 20] xhost +local:docker
-
-Then build and run the docker container:
-
-```
-git clone git@github.com:art-e-fact/warp-client.git
-docker build -t turtle2 .
-docker run --env ARTEFACTS_KEY=[YOUR-API-KEY] --net host --env DISPLAY=$DISPLAY -v $(pwd):/turtle turtle2
-```
+This command will build any missing image before running a container. Please add `--repackage` to force a rebuild as needed.
