@@ -1,6 +1,6 @@
 version: 0.1.0
 
-project: test-project # Update to your project name
+project: artefacts-tests/example-turtlesim
 jobs:
   basic_tests: # Overall job name
     type: test
