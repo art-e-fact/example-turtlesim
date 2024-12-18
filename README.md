@@ -19,6 +19,13 @@ See instructions for example [here for Humble](https://docs.ros.org/en/humble/In
 
 ## Usage
 
+Usage assumes you clone this repository where you intend to run the demo:
+
+    git clone https://github.com/art-e-fact/example-turtlesim.git
+    cd example-turtlesim
+
+From this point on, you can either run natively (supported Ubuntu versions only), or through containers.
+
 ### Native for supported Ubuntu
 
 #### Preliminary: Direct test run
