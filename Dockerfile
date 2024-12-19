@@ -1,4 +1,4 @@
-FROM osrf/ros2:humble-desktop
+FROM osrf/ros:humble-desktop
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     unzip \
