@@ -2,7 +2,7 @@
 
 This project demonstrates how to run a basic ROS2 end-to-end test in simulation (here turtlesim).
 
-This demo runs either natively or in containers. Native runs work only on Ubuntu version compatible with the tested ROS2 Galactic and Humble versions. Container runs work on Linux, Darwin and Windows, with the later run in X11-compatible shells.
+This demo runs either natively or in containers. Native runs work only on Ubuntu version compatible with the tested ROS2 Humble versions (originally working with Galactic too). Container runs work on Linux, Darwin and Windows, with the later run in X11-compatible shells.
 
 ## Prerequisite
 
@@ -13,7 +13,7 @@ This demo runs either natively or in containers. Native runs work only on Ubuntu
 
 ### Native for supported Ubuntu
 
-This is tested and likely to work only on ROS2 Galactic/Humble Ubuntu systems.
+This is tested and likely to work only on ROS2 Humble Ubuntu systems.
 
 See instructions for example [here for Humble](https://docs.ros.org/en/humble/Installation.html)
 
