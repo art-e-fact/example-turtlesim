@@ -50,6 +50,6 @@ The test should succeed. One way to make it fail for demo purpose is to, say, in
 
 Runs should work out of the box, assuming complete X11 configuration:
 
-    artefacts run --in-package basic_tests
+    artefacts run --in-container basic_tests
 
-This command will build any missing image before running a container. Please add `--repackage` to force a rebuild as needed.
+This command will build any missing image before running a container. 
