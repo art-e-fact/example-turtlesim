@@ -1,6 +1,6 @@
 version: 0.1.0
 
-project: fabian-organization/example-turtlesim
+project: artefacts-tests/example-turtlesim
 jobs:
   basic_tests: # Overall job name
     type: test
