@@ -10,7 +10,7 @@ from launch_ros.actions import Node
 
 
 ARTEFACTS_PARAMS_FILE = os.environ.get(
-    "ARTEFACTS_SCENARIO_PARAMS_FILE", "scenario_params.yaml"
+    "ARTEFACTS_SCENARIO_PARAMS_FILE", {}
 )
 
 @pytest.mark.launch_test

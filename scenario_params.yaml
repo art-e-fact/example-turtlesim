@@ -1,4 +1,0 @@
-turtlesim:
-  ros__parameters:
-    background_g: 255
-    background_r: 255
