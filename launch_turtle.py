@@ -9,6 +9,10 @@ from launch.actions import ExecuteProcess
 from launch_ros.actions import Node
 
 
+ARTEFACTS_PARAMS_FILE = os.environ.get(
+    "ARTEFACTS_SCENARIO_PARAMS_FILE", "scenario_params.yaml"
+)
+
 @pytest.mark.launch_test
 def generate_test_description():
     proc_env = os.environ.copy()
@@ -26,6 +30,7 @@ def generate_test_description():
         Node(
             package="turtlesim",
             executable='turtlesim_node',
+            parameters=[ARTEFACTS_PARAMS_FILE],
         ),
         bag_recorder,
         sample_process,
