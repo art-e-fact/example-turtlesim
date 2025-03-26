@@ -15,3 +15,20 @@ jobs:
       settings:
         - name: turtle
           ros_testfile: launch_turtle.py
+
+  parametrized: # Overall job name
+    type: test
+    runtime:
+      simulator: turtlesim
+      framework: ros2:humble
+    timeout: 2 #minutes
+    scenarios:
+      defaults: # Global to all scenarios, and overriden in specific scenarios.
+        subscriptions:
+          pose: turtle1/pose
+      settings:
+        - name: turtle
+          ros_testfile: launch_turtle.py
+          params:
+            turtlesim/background_r: [0, 255]
+            turtlesim/background_g: [0, 255]
