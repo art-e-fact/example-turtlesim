@@ -16,7 +16,7 @@ jobs:
         - name: turtle
           ros_testfile: launch_turtle.py
 
-  parametrized: # Overall job name
+  parameterized: # Overall job name
     type: test
     runtime:
       simulator: turtlesim
