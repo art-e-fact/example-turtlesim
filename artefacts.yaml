@@ -14,7 +14,7 @@ jobs:
           pose: turtle1/pose
       settings:
         - name: turtle
-          ros_testfile: launch_turtle.py
+          launch_test_file: launch_turtle.py
 
   parameterized: # Overall job name
     type: test
